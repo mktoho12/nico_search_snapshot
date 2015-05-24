@@ -28,7 +28,7 @@ class NicoSearchSnapshot
   #   # title only
   #   nico.search('query', search: [:title]) 
   #   # by tag(full match)
-  #   nico.search('query', search: [:tag_exact]) 
+  #   nico.search('query', search: [:tags_exact]) 
   #
   # Result fields. Fields name is <tt>cmsid</tt>, <tt>title</tt>,
   # <tt>description</tt>, <tt>tags</tt>, <tt>start_time</tt>,
