@@ -1,25 +1,42 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+
+lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'nico_search_snapshot/version'
+require "nico_search_snapshot/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "nico_search_snapshot"
   spec.version       = NicoSearchSnapshot::VERSION
-  spec.authors       = ["ishidamakot"]
-  spec.email         = []
+  spec.authors       = ["mktoho12"]
+  spec.email         = ["makoto_16n1200102@nnn.ed.jp"]
 
-  spec.summary       = %q{nicovideo snapshot search utility.}
-  spec.description   = %q{nicovideo snapshot search utility.}
-  spec.homepage      = ""
+  spec.summary       = %q{Nicovideo snapshot search library.}
+  spec.description   = %q{This is a library for using Nicovideo "Snapshot Search API v2" http://site.nicovideo.jp/search-api-docs/snapshot.html }
+  spec.homepage      = "https://github.com/mktoho12/nico_search_snapshot"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
+  # to allow pushing to a single host or delete this section to allow pushing to any host.
+  if spec.respond_to?(:metadata)
+    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
-  spec.add_dependency "httpclient", '>= 2.6.0'
-  spec.add_development_dependency "bundler", "~> 1.10.a"
+    spec.metadata["homepage_uri"] = spec.homepage
+    spec.metadata["source_code_uri"] = "https://github.com/mktoho12/nico_search_snapshot"
+    spec.metadata["changelog_uri"] = "https://github.com/mktoho12/nico_search_snapshot"
+  else
+    raise "RubyGems 2.0 or newer is required to protect against " \
+      "public gem pushes."
+  end
+
+  # Specify which files should be added to the gem when it is released.
+  # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
+  spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
+    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  end
+  spec.require_paths = ["lib"]
+  spec.required_ruby_version = '~> 2.6'
+
+  spec.add_dependency "httpclient", "~> 2.8.0"
+  spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec", "~> 3.0"
 end

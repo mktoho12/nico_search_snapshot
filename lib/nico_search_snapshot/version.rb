@@ -1,3 +1,3 @@
-class NicoSearchSnapshot
-  VERSION = "0.1.1"
+module NicoSearchSnapshot
+  VERSION = "2.0.0"
 end
